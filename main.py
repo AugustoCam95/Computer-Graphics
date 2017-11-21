@@ -1,5 +1,6 @@
 from transformations import Transformations
 from objectcg import ObjectCG
+from camera import Camera
 
 import numpy as np
 
@@ -26,26 +27,36 @@ def main():
     # aplicando escala no cubo
     cube = t.apply_scale(cube, mh)
 
-    print(cube.get_vertices())
-    print("")
+    #print(cube.get_vertices())
+    #print("")
 
     # setando translacao na matriz homogenea
-    mh = t.translation(mh, 3, 3, 3)
+    #mh = t.translation(mh, 3, 3, 3)
 
     #aplicando translacao no cubo
-    cube = t.apply_translation(cube, mh)
+    #cube = t.apply_translation(cube, mh)
 
-    print(cube.get_vertices())
+    #print(cube.get_vertices())
 
-    # implementar a rotação ( fazendo uma pra cada eixo)
-    # implementar transformações mais basicas (espelhamento, e cisalhamento normal)
-    # tentar fazer algum menu pra poder inserir os dados
-    mh = t.rotation(mh, 30, 'z')
-    cube = t.apply_rotation(cube, mh)
+    # setando e aplicando rotaçao
+    #mh = t.rotation(mh, 30, 'z')
+    #cube = t.apply_rotation(cube, mh)
 
 
-def questao():
-    pass
+
+    # 4)Posicionar observador e orientar a camera
+    camera = Camera()
+
+    eye = np.array([0, 0, 10])
+    lookat = np.array([0, 0, -3])
+    avup = np.array([0, 5, -3])
+
+    mWC = camera.find_world_camera(eye, lookat, avup)
+    mCW = camera.find_camera_world(eye, lookat, avup)
+
+
+
+
 
 
 def menu(obj):
@@ -150,10 +161,10 @@ def menu(obj):
         elif op == 0 :
             op = -1
 
-#main()
+main()
 
 # substitua os valores pelos pontos do seu objeto
-vertices = np.zeros((4, 3))
+#vertices = np.zeros((4, 3))
 
 '''
 vertices[0] = [5, 2.8867, 4.0324]
@@ -162,12 +173,15 @@ vertices[2] = [0, 0, 0]
 vertices[3] = [5, 8.6602, 0]
 '''
 
+#aqui ohh
+'''
 vertices[0] = [-5.4414, 1.9282, 4.0824]
 vertices[1] = [0, 0, 0]
 vertices[2] = [-1.0531, 5.6750, 8.1624]
 vertices[3] = [-6.4922, 7.6047, 0]
 
 obj = ObjectCG(vertices)
+'''
 
 '''
 mh = np.zeros((4, 4))
@@ -193,7 +207,7 @@ print("Vertices resultantes:")
 print(obj.get_vertices())
 '''
 
-menu(obj)
+#menu(obj)
 
 '''
 m1 = np.eye(3)
