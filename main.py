@@ -21,6 +21,10 @@ def main():
 
     cube = ObjectCG(vertices)
 
+    objectsWorld = np.array([cube])
+    #objectsWorld.append(cube)
+
+
     mh = np.eye(4)
     mh = t.scale(mh, 2, 2, 2)
 
@@ -55,7 +59,15 @@ def main():
     mCW = camera.find_camera_world(eye, lookat, avup)
 
 
+    # 5)Aplicar Mw->c a todos os objetos
+    objectsCamera = camera.apply_m_camera(mWC, objectsWorld)
+    print("Objetos em Mundo:")
+    for obj in objectsWorld:
+        print(obj.get_vertices())
 
+    print("Objetos em Camera")
+    for obj in objectsCamera:
+        print(obj.get_vertices())
 
 
 

@@ -30,3 +30,25 @@ class Camera:
         rowIdentity = np.array([0, 0, 0, 1])
         world_camera = np.vstack([iwc, jwc, kwc, rowIdentity])
         return world_camera
+
+    def apply_m_camera(self, mWC, objectsList):
+        # Percorre os objetos do cenario
+        for obj in objectsList:
+            vertices = obj.get_vertices()
+            mTemp = np.ones((4, 1))
+
+            # Para cada vertice do objeto converte para coordenadas de camera
+            for v in vertices:
+                mTemp[0, 0] = v[0]
+                mTemp[1, 0] = v[1]
+                mTemp[2, 0] = v[2]
+
+                mTemp = np.dot(mWC, mTemp)
+
+                v[0] = mTemp[0, 0]
+                v[1] = mTemp[1, 0]
+                v[2] = mTemp[2, 0]
+
+            obj.set_vertices(vertices)
+
+        return objectsList
