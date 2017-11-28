@@ -30,9 +30,10 @@ print("\n")
 
 LAt = P4-np.array([0,0,((L*(mh.sqrt(6)))/6)])
 Eye = np.array([A-5,B+L,(L*(mh.sqrt(6)))/6])
-Avup = (LAt-Eye)+(0,0,1)
+'avup = (LAt)+(0,0,1)'
+avup = P4
 
-print("Avup:{}".format(Avup))
+print("Avup:{}".format(avup))
 print("LAt:{}".format(LAt))
 print("Eye:{}".format(Eye))
 print("\n")
@@ -45,9 +46,9 @@ knorm = [(K[0]/kbarra),(K[1]/kbarra),(K[2]/kbarra)]
 print("K normalizado:[{:.2f},{:.2f},{:.2f}]".format(knorm[0],knorm[1],knorm[2]))
 print("\n")
 
-Avupnorm =  Avup - Eye
-print("Avupnorm:{}".format(Avupnorm))
-I = np.cross(Avupnorm,knorm)
+vup =  avup - Eye
+print("vup:{}".format(vup))
+I = np.cross(vup,knorm)
 print("I:{}".format(I))
 ibarra = mh.sqrt(((I[0])**2)+((I[1])**2)+((I[2])**2))
 print("ibarra:{}".format(ibarra)) 
@@ -58,12 +59,12 @@ print("\n")
 jnorm = np.cross(knorm,inorm)
 print("J normalizado:[{:.2f},{:.2f},{:.2f}]".format(jnorm[0],jnorm[1],jnorm[2]))
 print("\n")
-
+'''
 print("Matriz c->w:")
-Mcw = np.array([[inorm[0],jnorm[0],knorm[0],Eye[0]],
+Mcw = np.array([inorm[0],jnorm[0],knorm[0],Eye[0]],
 		   	    [inorm[1],jnorm[1],knorm[1],Eye[1]],
 		   	    [inorm[2],jnorm[2],knorm[2],Eye[2]],
-		   	    [0],[0],[0],[1]])
+		   	    [[0],[0],[0],[1]])
 print(Mcw)
-
+'''
 print("\n")
