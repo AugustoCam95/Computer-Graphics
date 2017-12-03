@@ -47,7 +47,6 @@ def main():
     #cube = t.apply_rotation(cube, mh)
 
 
-
     # 4)Posicionar observador e orientar a camera
     camera = Camera()
 
@@ -59,7 +58,7 @@ def main():
     mCW = camera.find_camera_world(eye, lookat, avup)
 
 
-    # 5)Aplicar Mw->c a todos os objetos
+    # 5) Aplicar Mw->c a todos os objetos
     objectsCamera = camera.apply_m_camera(mWC, objectsWorld)
     print("Objetos em Mundo:")
     for obj in objectsWorld:
@@ -69,6 +68,13 @@ def main():
     for obj in objectsCamera:
         print(obj.get_vertices())
 
+
+    # 6) Definir Parametros para visualização
+    d = 2
+    w = 600
+    h = 400
+    n = 400
+    m = 600
 
 
 def menu(obj):
