@@ -1,7 +1,7 @@
 import numpy as np
 import math as mh
 
-matricula = '388112'
+matricula = '370019'
 
 F,E,D,C,B,A = matricula
 
@@ -30,7 +30,7 @@ print("\n")
 
 LAt = P4-np.array([0,0,((L*(mh.sqrt(6)))/6)])
 Eye = np.array([A-5,B+L,(L*(mh.sqrt(6)))/6])
-avup = (LAt)+(0,0,1)
+avup = (LAt)+(0,0,10.2)
 'avup = P4'
 
 print("Avup:{}".format(avup))
@@ -55,6 +55,7 @@ print("IC:")
 print(ic)
 print("JC:")
 print(jc)
+print("\n")
 
 icw = np.append(ic, 0)
 jcw = np.append(jc, 0)
