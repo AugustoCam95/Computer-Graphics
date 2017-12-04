@@ -2,7 +2,7 @@ import np as np
 import numpy as np
 import math as mh
 
-matricula = '388112'
+#matricula = '388112'
 #matricula = '370019'
 #matricula = '391941'
 #matricula = '353003'
@@ -119,8 +119,8 @@ print("n normalizado:")
 print(n)
 print("\n")
 
-pw =np.array([23.5,12.64,4.7,1])
-fw =np.array([12,24,46,1])
+pw =np.array([20, 9.04, 2.86, 1])
+fw =np.array([13,14,28,1])
 #pw= np.array([29,11.77,4.2817,1])
 #fw= np.array([A+10,B+L,2*L,1])
 #pw= np.array([24.5,16.79,-69.97,1])
@@ -162,8 +162,6 @@ print(v)
 print("\n")
 
 prod_esc = l[0]*n[0] + l[1]*n[1] + l[2]*n[2]
-print (n)
-print (prod_esc)
 r = []
 r.append(2*n[0] * prod_esc - l[0])
 r.append(2*n[1] * prod_esc - l[1])
@@ -171,3 +169,24 @@ r.append(2*n[2] * prod_esc - l[2])
 #r = (np.dot(l,n)*(2*n))-l
 print("r")
 print(r)
+
+ia = np.array([0.4,0.4,0.4])
+iif = np.array([0.7,0.7,0.7])
+ka = np.array([2/50,1/50,1/50])
+kd = 3*ka
+ks = 3*ka
+m = 1
+
+ambiente = ia*ka
+difuso = (kd*iif)*(np.dot(n,l))
+especular = (ks*iif)*(np.dot(v,r)**m)
+
+print("ambiente")
+print(ambiente)
+print("difuso")
+print(difuso)
+print("especular")
+print(especular)
+print("soma:")
+print(ambiente+difuso+especular)
+
