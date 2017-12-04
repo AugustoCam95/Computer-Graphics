@@ -1,6 +1,7 @@
 from transformations import Transformations
 from objectcg import ObjectCG
 from camera import Camera
+from window import Window
 
 import numpy as np
 
@@ -75,6 +76,23 @@ def main():
     h = 400
     n = 400
     m = 600
+
+    window = Window(d, w, h, n, m)
+
+
+    # 7) Calcular  delta X, delta Y em que deltaX = w/m e deltaY = h/n
+    # fazendo dentro da classe Window
+
+    # 8) Iterar loop
+    # fazendo dentro da classe window
+
+    # Parte 2
+    # 9) Criar aura para cada objeto
+    # 10) Calcular Interseção
+    # 11) Calcular cores/iluminação
+    # 12) Renderizar cenario
+
+
 
 
 def menu(obj):
