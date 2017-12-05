@@ -1,11 +1,8 @@
-import np as np
 import numpy as np
 import math as mh
 
-#matricula = '388112'
-#matricula = '370019'
-#matricula = '391941'
-#matricula = '353003'
+matricula = '388112'
+
 
 F,E,D,C,B,A = matricula
 
@@ -119,12 +116,10 @@ print("n normalizado:")
 print(n)
 print("\n")
 
-pw =np.array([20, 9.04, 2.86, 1])
-fw =np.array([13,14,28,1])
-#pw= np.array([29,11.77,4.2817,1])
-#fw= np.array([A+10,B+L,2*L,1])
-#pw= np.array([24.5,16.79,-69.97,1])
-#fw= np.array([11,31,54,1])
+
+pw= np.array([29,11.77,4.2817,1])
+fw= np.array([A+10,B+L,2*L,1])
+
 pc = world_camera.dot(pw)[:3]
 fc = world_camera.dot(fw)[:3]
 print("pc:")
